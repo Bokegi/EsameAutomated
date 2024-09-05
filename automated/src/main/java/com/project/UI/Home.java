@@ -1,6 +1,7 @@
 package com.project.UI;
 
 import java.io.IOException;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -26,7 +27,8 @@ public class Home {
     }
 
     private void homePage() {
-        int choice;
+
+        int choice = 0;
 
         do {
             System.out.println("Welcome to the Anime DataBase");
@@ -36,28 +38,44 @@ public class Home {
             System.out.println("4. Exit");
             System.out.print("Choose: ");
 
-            choice = scanner.nextInt();
-            switch (choice) {
-                case 1:
-                    insertAnime();
-                    break;
-                case 2:
-                    updateAnime();
-                    break;
-                case 3:
-                    stamp();
-                    break;
-                case 4:
-                    System.out.println("Exiting.....");
-                    break;
-                default:
-                    System.out.println("Invalid choice");
-                    break;
+            try {
+                if (scanner.hasNextInt()) {
+                    choice = scanner.nextInt();
+                    switch (choice) {
+                        case 1:
+                            insertAnime();
+                        break;
+
+                        case 2:
+                            updateAnime();
+                        break;
+
+                        case 3:
+                            stamp();
+                        break;
+
+                        case 4:
+                            System.out.println("Exiting.....");
+                        break;
+
+                        default:
+                            System.out.println("Invalid choice");
+                        break;
+                    }
+                } else {
+                    System.out.println("Input non valido. Inserisci un numero intero.");
+                    scanner.next(); // Consuma l'input non valido
+                }
+            } catch (NoSuchElementException e) {
+                System.out.println("Errore: Input non valido.");
+                scanner.next(); // Consuma l'input non valido
             }
         } while (choice != 4);
-        
-        scanner.close(); // Close scanner when done
+
+        scanner.close(); // Chiudi lo scanner quando hai finito
     }
+
+    
 
     private void insertAnime() {
         scanner.nextLine(); // Consume newline
