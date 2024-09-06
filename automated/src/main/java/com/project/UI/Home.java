@@ -27,9 +27,8 @@ public class Home {
     }
 
     private void homePage() {
-
         int choice = 0;
-
+    
         do {
             System.out.println("Welcome to the Anime DataBase");
             System.out.println("1. Insert Anime");
@@ -37,30 +36,27 @@ public class Home {
             System.out.println("3. Stamp");
             System.out.println("4. Exit");
             System.out.print("Choose: ");
-
+    
             try {
                 if (scanner.hasNextInt()) {
                     choice = scanner.nextInt();
+                    System.out.println("User chose: " + choice); // Debug line
                     switch (choice) {
                         case 1:
                             insertAnime();
-                        break;
-
+                            break;
                         case 2:
                             updateAnime();
-                        break;
-
+                            break;
                         case 3:
                             stamp();
-                        break;
-
+                            break;
                         case 4:
                             System.out.println("Exiting.....");
-                        break;
-
+                            break;
                         default:
                             System.out.println("Invalid choice");
-                        break;
+                            break;
                     }
                 } else {
                     System.out.println("Input non valido. Inserisci un numero intero.");
@@ -71,9 +67,10 @@ public class Home {
                 scanner.next(); // Consuma l'input non valido
             }
         } while (choice != 4);
-
+    
         scanner.close(); // Chiudi lo scanner quando hai finito
     }
+    
 
     
 
