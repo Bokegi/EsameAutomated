@@ -37,18 +37,18 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
+        <groupId>org.apache.maven.plugins</groupId> <!-- Crea una versione HTML del progetto -->
         <artifactId>maven-site-plugin</artifactId>
         <version>3.7.1</version>
       </plugin>
 
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
+        <groupId>org.apache.maven.plugins</groupId> <!-- Fornisce una documentazione completa e dettagliata del progetto. -->
         <artifactId>maven-project-info-reports-plugin</artifactId>
         <version>3.0.0</version>
       </plugin>
 
-      <plugin>
+      <plugin>  <!-- Crea file JAR -->
         <artifactId>maven-jar-plugin</artifactId>
         <version>3.0.2</version>
         <configuration>
@@ -62,7 +62,7 @@
         </configuration>
       </plugin>
 
-      <plugin>
+      <plugin> <!-- Esegue controlli sul codice sorgente per verificare la conformità a uno stile di codifica predefinito o personalizzato. -->
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>3.2.0</version>
@@ -84,7 +84,7 @@
         </executions>
       </plugin>
 
-      <plugin>
+      <plugin> <!-- Aiuta a identificare e correggere i bug prima che il codice venga eseguito e Fornisce suggerimenti per migliorarne la qualità -->
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
         <version>3.20.0</version>
@@ -99,6 +99,7 @@
           <xmlOutputDirectory>target/site</xmlOutputDirectory>
         </configuration>
       </plugin>
+      
     </plugins>
   </build>
     
@@ -111,7 +112,7 @@
       </plugin>
 
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
+        <groupId>org.apache.maven.plugins</groupId> 
         <artifactId>maven-pmd-plugin</artifactId>
         <version>3.20.0</version>
         <configuration>

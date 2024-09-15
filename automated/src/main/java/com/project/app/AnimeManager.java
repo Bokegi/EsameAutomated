@@ -8,7 +8,7 @@ import com.project.Exception.AnimeException;
 public class AnimeManager implements Serializable{  
 
     private ArrayList<Anime> animeList;
-    private static String filename = "anime.dat";
+    private static String filename = "automated/save/anime.dat";
     
     public AnimeManager() {
         animeList = new ArrayList<Anime>();
@@ -36,7 +36,7 @@ public class AnimeManager implements Serializable{
         }
     }
 
-    public static AnimeManager loadData() throws IOException{
+    public static AnimeManager loadData() throws Exception{
         try {
             FileInputStream fis = new FileInputStream(filename);
             ObjectInputStream ois = new ObjectInputStream(fis);
@@ -44,7 +44,8 @@ public class AnimeManager implements Serializable{
             ois.close();
             return animeManager;
         } catch (IOException | ClassNotFoundException e) {
-            return null;
+            System.out.println("Error during loading: " + e.getMessage());
+            throw e; // Rethrow to let the caller handle it
         }
     }
 

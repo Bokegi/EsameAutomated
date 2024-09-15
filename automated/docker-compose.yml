@@ -1,10 +1,11 @@
-version: "1.0"
 services:
   project:
     container_name: animedatabase
     build:
       context: .
       dockerfile: ./dockerfile
+    volumes:
+      - anime_data:/automated/save
 
-
-    
+volumes:
+  anime_data:
