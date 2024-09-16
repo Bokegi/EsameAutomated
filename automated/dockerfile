@@ -11,5 +11,5 @@ RUN mvn -f /usr/src/app/pom.xml clean package
 #
 FROM eclipse-temurin:17-jre 
 COPY target/automated-1.0-SNAPSHOT.jar /automated/target/automated-1.0-SNAPSHOT.jar  
-VOLUME /save
+VOLUME /automated/save
 CMD ["java","-jar","/automated/target/automated-1.0-SNAPSHOT.jar"]
