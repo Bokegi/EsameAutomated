@@ -5,7 +5,9 @@ services:
       context: .
       dockerfile: ./dockerfile
     volumes:
-      - anime_data:/automated/save
+      - type: volume
+        source: anime_data
+        target: /automated/save
 
 volumes:
   anime_data:
